@@ -3,7 +3,7 @@ const { program } = require('commander');
 const chalk = require("chalk");
 const Inquirer = require("inquirer");
 const ora = require("ora");
-const createProject = require("../lib/create");
+const ProjectCreator = require("../lib/projectCreator");
 // 注入环境变量
 const dotenv = require("dotenv");
 dotenv.config();
@@ -22,7 +22,8 @@ program
     // console.log(projectName, cmd);
     if (cmd?.force) console.log(chalk.yellow("强制覆盖已开启"));
     // 创建项目
-    createProject(projectName, cmd);
+    const project = new ProjectCreator(projectName, cmd);
+    project.create();
   });
 
 // 监听 --help 指令
