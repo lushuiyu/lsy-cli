@@ -13,6 +13,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@octokit/rest": "^20.1.0",
+    "adm-zip": "^0.5.12",
     "axios": "^1.6.8",
     "chalk": "^4.1.2",
     "commander": "^12.0.0",
@@ -20,6 +22,7 @@
     "download-git-repo": "^3.0.2",
     "fs-extra": "^11.2.0",
     "inquirer": "^8.2.6",
-    "ora": "^5.4.1"
+    "ora": "^5.4.1",
+    "tar": "^7.0.0"
   }
 }
