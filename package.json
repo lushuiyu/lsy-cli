@@ -1,17 +1,22 @@
 {
   "name": "lsy-cli",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A personal scaffolding tool that can quickly create various types of project templates to help developers quickly build their own projects.",
   "bin": {
-    "lsy-cli": "./bin/lsy"
+    "lsy-cli": "bin/main"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "create"
+  ],
+  "author": "lushuiyu",
+  "license": "MIT",
   "dependencies": {
     "@octokit/rest": "^20.1.0",
     "adm-zip": "^0.5.12",
