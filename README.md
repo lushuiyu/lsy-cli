@@ -9,6 +9,8 @@
 4. [Shopify-theme-classic](https://github.com/lushuiyu/Super-Dawn)
 ---
 ### start
-```
-npm install -g lsy-cli
+```javascript
+npm i @lushuiyu/cli
+// create a new project
+@lushuiyu/cli create <project-name>
 ```
