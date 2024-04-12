@@ -1,5 +1,5 @@
 {
-  "name": "lsy-cli",
+  "name": "@lushuiyu/cli",
   "version": "1.0.0",
   "description": "A personal scaffolding tool that can quickly create various types of project templates to help developers quickly build their own projects.",
   "bin": {
