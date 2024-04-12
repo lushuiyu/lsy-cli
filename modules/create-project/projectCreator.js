@@ -3,11 +3,11 @@ const fs = require('fs-extra');
 const inquirer = require('inquirer');
 const chalk = require('chalk');
 const ora = require('ora');
-const loading = require('./fnLoading');
+const loading = require('../../lib/fnLoading');
 const downloadGitRepo = require('download-git-repo'); // 下载git仓库
 const util = require('util');
-const { downloadRepo, getTemplatesFromReadme } = require("./api"); // 获取仓库描述
-const { zipStream2File } = require("./utils"); // 压缩文件流
+const { downloadRepo, getTemplatesFromReadme } = require("../../lib/api"); // 获取仓库描述
+const { zipStream2File } = require("../../lib/utils"); // 压缩文件流
 
 
 // 覆盖选项列表

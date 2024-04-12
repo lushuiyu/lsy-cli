@@ -1,30 +1,29 @@
 #! /usr/bin/env node
 const { program } = require('commander');
 const chalk = require("chalk");
-const Inquirer = require("inquirer");
-const ora = require("ora");
-const ProjectCreator = require("../lib/projectCreator");
+// const ProjectCreator = require("../lib/projectCreator");
+const { useCreateProject } = require("../modules/create-project");
+
 // 注入环境变量
 const dotenv = require("dotenv");
 dotenv.config();
 // 自定义命令
 // 设置版本号
-// program.version(`zc-cli ${require("../package.json").version}`);
 program.name("lsy-cli").usage("<command> [options]").version(`lsy-cli ${require("../package.json").version}`);
 
-program
-  .command("create <project-name>") // 增加创建指令
-  .description("创建新项目") // 添加描述信息
-  .option("-f, --force", "强制覆盖") // 强制覆盖
-  .action((projectName, cmd) => {
-    // projectName ->项目名称, cmd->命令行参数 {force: true}
-    // // 处理用户输入create 指令附加的参数
-    // console.log(projectName, cmd);
-    if (cmd?.force) console.log(chalk.yellow("强制覆盖已开启"));
-    // 创建项目
-    const project = new ProjectCreator(projectName, cmd);
-    project.create();
-  });
+useCreateProject();
+// program
+//   .command("create <project-name>") // 增加创建指令
+//   .description("创建新项目") // 添加描述信息
+//   .option("-f, --force", "强制覆盖") // 强制覆盖
+//   .action((projectName, cmd) => {
+//     // projectName ->项目名称, cmd->命令行参数 {force: true}
+//     // // 处理用户输入create 指令附加的参数
+//     if (cmd?.force) console.log(chalk.yellow("强制覆盖已开启"));
+//     // 创建项目
+//     const project = new ProjectCreator(projectName, cmd);
+//     project.create();
+//   });
 
 // 监听 --help 指令
 program.on("--help", function () {
