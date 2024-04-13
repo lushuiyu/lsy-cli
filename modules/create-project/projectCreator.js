@@ -2,10 +2,7 @@ const path = require('path');
 const fs = require('fs-extra');
 const inquirer = require('inquirer');
 const chalk = require('chalk');
-const ora = require('ora');
 const loading = require('../../lib/fnLoading');
-const downloadGitRepo = require('download-git-repo'); // 下载git仓库
-const util = require('util');
 const { downloadRepo, getTemplatesFromReadme } = require("../../lib/api"); // 获取仓库描述
 const { zipStream2File } = require("../../lib/utils"); // 压缩文件流
 
@@ -34,7 +31,6 @@ class ProjectCreator {
     this.projectName = projectName;
     this.cmd = cmd;
     this.targetPath = path.join(process.cwd(), this.projectName); // 拼接项目路径
-    this.downloadGitRepo = util.promisify(downloadGitRepo); // 下载函数promise化
   }
   // 创建项目
   async create() {
@@ -61,11 +57,6 @@ class ProjectCreator {
     // const templatePath = path.join(__dirname, `../templates/${template}`); // 拼接模板路径
     // await fs.copy(templatePath, this.targetPath); // 复制模板到项目路径
     // createLoading.succeed("项目创建成功");
-  }
-  // 下载项目
-  async download(repoName, tag) {
-    const templateUrl = `direct:${repoName}#${tag}`; // 拼接下载链接
-    await loading("正在下载项目...", this.downloadGitRepo, templateUrl, this.targetPath, { clone: true }); // 下载项目
   }
 }
 

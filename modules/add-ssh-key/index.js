@@ -18,7 +18,7 @@ exec(`ssh-keygen -t rsa -C "${email}"`, (error, stdout, stderr) => {
 
 const useAddSshKey = () => {
   program
-    .command("create <project-name>") // 增加创建指令
+    .command("sshkey <shh-key-name>") // 增加创建指令
     .description("创建新项目") // 添加描述信息
     .option("-f, --force", "强制覆盖") // 强制覆盖
     .action((projectName, cmd) => {
