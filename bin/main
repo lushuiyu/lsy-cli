@@ -3,15 +3,16 @@ const { program } = require('commander');
 const chalk = require("chalk");
 // const ProjectCreator = require("../lib/projectCreator");
 const { useCreateProject } = require("../modules/create-project");
-
+const { useAddSshKey} = require("../modules/add-ssh-key");
 // 注入环境变量
 const dotenv = require("dotenv");
 dotenv.config();
 // 自定义命令
 // 设置版本号
 program.name("lsy-cli").usage("<command> [options]").version(`lsy-cli ${require("../package.json").version}`);
-
-useCreateProject();
+// 各项命令注册
+useCreateProject(); // 根据模板创建新项目
+useAddSshKey(); // 添加ssh密钥
 // program
 //   .command("create <project-name>") // 增加创建指令
 //   .description("创建新项目") // 添加描述信息
