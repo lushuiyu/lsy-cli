@@ -5,7 +5,7 @@ const ProjectCreator = require("./projectCreator");
 const useCreateProject = () => {
   program
     .command("create <project-name>") // 增加创建指令
-    .description("创建新项目") // 添加描述信息
+    .description("创建新项目, -f 强制覆盖") // 添加描述信息
     .option("-f, --force", "强制覆盖") // 强制覆盖
     .action((projectName, cmd) => {
       // projectName ->项目名称, cmd->命令行参数 {force: true}

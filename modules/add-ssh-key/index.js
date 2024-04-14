@@ -14,8 +14,8 @@ const inquirer = require("inquirer");
 
 const useAddSshKey = () => {
   program
-    .command("key <email> <keyname>") // 增加创建指令
-    .description("创建SSH密钥对") // 添加描述信息
+    .command("sshkey <email> <keyname>") // 增加创建指令
+    .description("创建SSH密钥对, -f 覆盖已存在的密钥对") // 添加描述信息
     .option("-f, --force", "覆盖已存在的密钥对")
     .action(async (email, keyName, cmd) => {
       const creator = new SSHKeyCreator();
@@ -29,7 +29,7 @@ const useAddSshKey = () => {
           name: "to_editor",
           message: "是否打开SSH配置文件编辑器进行配置？",
           default: true,
-        }
+        },
       ]);
       if (!to_editor.to_editor) return console.log(chalk.green("已跳过配置."));
       const config = await inquirer.prompt([
@@ -67,16 +67,16 @@ const useAddSshKey = () => {
               return chalk.red("用户名不能为空!");
             }
             return true;
-          }
+          },
         },
         {
           type: "input",
           message: "请输入端口号: ",
           name: "port",
           default: "22",
-        }
+        },
       ]);
-      
+
       Object.assign(config, { identityfile: creator.path });
       const configEditor = new SSHConfigEditor();
       configEditor.checkConfigFileExists();
