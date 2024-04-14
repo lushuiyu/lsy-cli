@@ -16,11 +16,11 @@
 ---
 ### start
 ```javascript
-npm i @lushuiyu/cli
+// All you need to do is run the command with npx
 // use -h or --help to get help
-@lushuiyu/cli -h
+npx lushuiyu-cli -h
 // create a new project
-@lushuiyu/cli create <project-name>
+npx lushuiyu-cli create <project-name>
 // create a new SSH key
-@lushuiyu/cli sshkey
+npx lushuiyu-cli sshkey
 ```

@@ -9,7 +9,10 @@ const dotenv = require("dotenv");
 dotenv.config();
 // 自定义命令
 // 设置版本号
-program.name("lsy-cli").usage("<command> [options]").version(`lsy-cli ${require("../package.json").version}`);
+program
+  .name("lushuiyu-cli")
+  .usage("<command> [options]")
+  .version(`lushuiyu-cli ${require("../package.json").version}`);
 // 各项命令注册
 useCreateProject(); // 根据模板创建新项目
 useAddSshKey(); // 添加ssh密钥
@@ -30,7 +33,7 @@ useAddSshKey(); // 添加ssh密钥
 program.on("--help", function () {
   // 前后两个空行调整格式，更舒适
   console.log();
-  console.log(`输入 ${chalk.cyan("lsy-cli <command> --help")} 获取命令的详细使用说明。`);
+  console.log(`输入 ${chalk.cyan("lushuiyu-cli <command> --help")} 获取命令的详细使用说明。`);
   console.log();
 });
 
